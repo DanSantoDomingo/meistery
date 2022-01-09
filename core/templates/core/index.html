@@ -1,0 +1,24 @@
+
+
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+
+<form id='form' hx-encoding='multipart/form-data' hx-post='/api/v1/requests/' enctype="multipart/form-data">
+    {{form.as_p}}
+    <button _="">
+        Upload
+    </button>
+    <progress id='progress' value='0' max='100'></progress>
+</form>
+
+{% endblock content %}
+
+{% block extrascripts %}
+<script>
+    htmx.on('#form', 'htmx:xhr:progress', function(evt) {
+      htmx.find('#progress').setAttribute('value', evt.detail.loaded/evt.detail.total * 100)
+    });
+</script>
+{% endblock extrascripts %}
