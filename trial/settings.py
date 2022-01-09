@@ -131,11 +131,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-STATIC_ROOT = BASE_DIR.joinpath('static')
 STATIC_URL = '/static/'
-
 STATICFILES_DIR = [BASE_DIR.joinpath('static')]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR.joinpath('static')
 
-MEDIA_ROOT = BASE_DIR.joinpath('media')
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.joinpath('media')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
